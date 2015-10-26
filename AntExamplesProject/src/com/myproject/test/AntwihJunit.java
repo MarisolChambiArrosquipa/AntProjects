@@ -12,7 +12,7 @@ public class AntwihJunit {
 	public void setup(){
 		System.out.println("run setup method");
 		testname=this.toString();
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\Project_Todo\\broswer\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\projetAnt\\AntExamplesProject\\browser\\chromedriver.exe");
 		driver=new ChromeDriver();
 		
 		
