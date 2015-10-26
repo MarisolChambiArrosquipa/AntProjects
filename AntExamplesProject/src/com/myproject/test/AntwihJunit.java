@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 public class AntwihJunit {
 	String testname;
 	WebDriver driver;
@@ -12,8 +13,9 @@ public class AntwihJunit {
 	public void setup(){
 		System.out.println("run setup method");
 		testname=this.toString();
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\projetAnt\\AntExamplesProject\\browser\\chromedriver.exe");
-		driver=new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\projetAnt\\AntExamplesProject\\browser\\chromedriver.exe");
+		driver=new FirefoxDriver();
+		//driver=new ChromeDriver();
 		
 		
 	}
