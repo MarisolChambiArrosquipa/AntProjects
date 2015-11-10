@@ -3,6 +3,7 @@ package com.myproject.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ public class AntwihTestNg {
 		System.out.println("run setup method");
 		testname=this.toString();
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\Project_Todo\\broswer\\chromedriver.exe");
-		driver=new ChromeDriver();
+		driver=new FirefoxDriver();
 		
 		
 	}

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 
@@ -18,8 +19,10 @@ public class AntwithTestNG {
 	@Before
 	public void SetUp(){
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\Project_Todo\\broswer\\chromedriver.exe");
-		driver=new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sol\\Desktop\\Project_Todo\\broswer\\chromedriver.exe");
+		driver=new FirefoxDriver();
+		
+		//driver=new ChromeDriver();
 		driver.get("http://localhost/cssmenu/");
 		ImplicitExplictWaits.ImplicitWait(driver);
 	}
