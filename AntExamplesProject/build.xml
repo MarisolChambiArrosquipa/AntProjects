@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="run" name="Examples using ant with java">
+ <project default="run" name="Examples using ant with java">
  <target name="run" depends="compile">
- 	<junit>
- 		<test name="com.myproject.test.AntwihJunit"/>
+ 	<testng>
+ 		<test name="com.myproject.test.AntwihTestNg"/>
  		<classpath>
  			<pathelement location="C:\Users\Sol\Desktop\seleniumHelps\JARS\selenium-server-standalone-2.46.0.jar"/>
+ 			<pathelement location="C:\Users\Sol\Documents\TODO DESKTOP\desktop\Todo\TODO1\install\eclipse-java-luna-SR1-win32-x86_64\eclipse\plugins\org.testng.eclipse_6.9.4.201505110455\lib\testng.jar"/>
  			<pathelement location="binary"/>
  		</classpath>
- 	</junit>
+ 	</testng>
  </target>
  <target name="compile">
- <javac includeantruntime="false" srcdir="./src" destdir="binary"
- 	classpath="C:\Users\Sol\Desktop\seleniumHelps\JARS\selenium-server-standalone-2.46.0.jar"></javac>
+ <javac includeantruntime="false" srcdir="./src" destdir="binary" classpath="C:\Users\Sol\Desktop\seleniumHelps\JARS\selenium-server-standalone-2.46.0.jar">
+     
+ </javac>
+ <javac includeantruntime="false" srcdir="./src" destdir="binary" classpath="C:\Users\Sol\Documents\TODO DESKTOP\desktop\Todo\TODO1\install\eclipse-java-luna-SR1-win32-x86_64\eclipse\plugins\org.testng.eclipse_6.9.4.201505110455\lib\testng.jar">
+     
+ </javac>
+ 
  </target>
 </project>
