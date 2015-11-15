@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <project basedir="." default="runTest" name="Ant file for TestNG">
+ 
+      <!-- <property name="main.folder" value="${basedir}" />
+<property name="folder.jars" value="C:\Users\Sol\Desktop\jar" />
+<property name="test.destination" value="${main.folder}/binary" />
+<property name="test.src" value="${main.folder}/src" />
+       -->
+   <property name="main.folder" value="${basedir}" />
+  <property name="src" value="${main.folder}/src" />
+  <property name="bin" value="${main.folder}/binary" />
+  <property name="libs" value="C:\Users\Sol\Desktop\jar"/>
+   
+  <path id="class.path">
+     <pathelement location="${libs}/testng.jar" />
+      <pathelement location="${libs}/selenium-java-client-driver-1.0.1.jar" />
+      <pathelement location="${libs}/selenium-server-standalone-2.46.0.jar" />
+      <pathelement location="${bin}" />
+  </path>
+   <target name="compile">
+    <taskdef>
+      <classpath>
+        <pathelement location="lib/testng.jar"/>
+      </classpath>
+    </taskdef>
+    </target>
+     <target name="runTest" depends ="compile">
+   
+      <mkdir dir="testng_output"/><!-- Create the output directory. -->
+   
+      <testng outputdir="testng_output" classpathref="class.path"> 
+        <xmlfileset dir="." includes="suite.xml"/> 
+         
+      </testng>
+   
+    </target>
+  </project>

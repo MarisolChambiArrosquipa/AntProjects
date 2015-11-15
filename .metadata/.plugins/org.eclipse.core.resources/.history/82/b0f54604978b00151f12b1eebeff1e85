@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <project default="run" name="Examples using ant with java" basedir=".">
+<property name="main.folder" value="${basedir}" />
+<property name="folder.jars" value="C:\Users\Sol\Desktop\jar" />
+<property name="test.destination" value="${main.folder}/binary" />
+<property name="test.src" value="${main.folder}/src" />
+
+
+<path id="class.path">
+     <pathelement location="${folder.jars}/testng.jar" />
+      <pathelement location="${folder.jars}/selenium-java-client-driver-1.0.1.jar" />
+      <pathelement location="${folder.jars}/selenium-server-standalone-2.46.0.jar" />
+      <pathelement location="${test.destination}" />
+  </path>
+
+<target name="setClassPath" unless="test.classpath">
+    <path id= "classpath_jars">
+        <fileset dir="${folder.jars}" include="*.jar"></fileset>
+    </path>
+    <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars"></pathconvert>
+</target>
+ <!-- 
+ <path id="classpath">
+        <fileset dir="${folder.jars}" include ="*.jar">
+         </fileset>
+         <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars"></pathconvert>
+    </path>
+     -->
+<target name="compile" >
+   <javac destdir="${test.destination}" srcdir="${test.src}" classpath="${test.classpath}" includeantruntime="false"></javac> 
+    
+</target>
+         <mkdir dir="testng_output"/><!-- Create the output directory. -->
+
+<target name="run" depends="compile">
+   
+      <testng outputdir="testng_output" classpathref="class.path"> 
+       
+ <xmlfileset dir="${main.folder}" include="suite.xml"></xmlfileset>
+        
+    </testng>
+ 
+</target>
+</project>

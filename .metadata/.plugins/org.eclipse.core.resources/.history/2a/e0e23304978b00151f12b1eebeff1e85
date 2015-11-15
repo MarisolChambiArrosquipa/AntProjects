@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <project default="run" name="Examples using ant with java" basedir=".">
+<property name="main.folder" value="${basedir}" />
+<property name="folder.jars" value="C:\Users\Sol\Desktop\jar" />
+<property name="test.destination" value="${main.folder}/binary" />
+<property name="test.src" value="${main.folder}/src" />
+
+<target name="setClassPath" unless="test.classpath">
+    <path id= "classpath_jars">
+        <fileset dir="${folder.jars}" include="*.jar"></fileset>
+    </path>
+    <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars"></pathconvert>
+</target>
+ <!-- 
+ <path id="classpath">
+        <fileset dir="${folder.jars}" include ="*.jar">
+         </fileset>
+         <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars"></pathconvert>
+    </path>
+     -->
+<target name="compile" >
+   <javac destdir="${test.destination}" srcdir="${test.src}" classpath="${test.classpath}" includeantruntime="false"></javac> 
+    
+</target>
+
+<target name="run" depends="compile">
+        <testng 
+            haltonfailure="true"
+            useDefaultListeners="false" classpath="${test.classpath}">
+        <xmlfileset dir="${main.folder}" include="suite.xml"></xmlfileset>
+        
+    </testng>
+ 
+</target>
+</project>
